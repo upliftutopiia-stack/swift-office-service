@@ -2,9 +2,9 @@
 
 import { useState } from "react";
 
-const phoneDisplay = "021 330 415";
-const phoneHref = "tel:+6421330415";
 const email = "joy.swift@swiftoffice.co.nz";
+const phone = "021 330 415";
+const phoneLink = "tel:+6421330415";
 
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -13,303 +13,298 @@ export default function Home() {
 
   return (
     <main>
-      <header className="site-header">
-        <div className="nav-wrap">
-          <a
-            href="#home"
-            className="brand"
-            aria-label="Swift Office Service home"
-            onClick={closeMenu}
-          >
-            <span className="brand-icon">S</span>
+      <header className="header">
+        <div className="container nav">
+          <a href="#home" className="logo" onClick={closeMenu}>
+            <span className="logoMark">S</span>
 
-            <span className="brand-copy">
+            <span className="logoText">
               <strong>Swift Office Service</strong>
               <small>Bookkeeping · Auckland</small>
             </span>
           </a>
 
-          <nav className="desktop-nav" aria-label="Main navigation">
-            <a href="#home">Home</a>
+          <nav className="desktopNav">
             <a href="#about">About</a>
             <a href="#bookkeeping">Bookkeeping</a>
             <a href="#contact">Contact</a>
           </nav>
 
-          <a className="header-contact" href={`mailto:${email}`}>
+          <a className="navCta" href={`mailto:${email}`}>
             Contact Joy
-            <span aria-hidden="true">↗</span>
+            <span>↗</span>
           </a>
 
           <button
-            className={`menu-button ${menuOpen ? "active" : ""}`}
-            type="button"
+            className={`menuButton ${menuOpen ? "open" : ""}`}
+            onClick={() => setMenuOpen(!menuOpen)}
             aria-label="Toggle navigation"
             aria-expanded={menuOpen}
-            onClick={() => setMenuOpen((current) => !current)}
           >
             <span />
             <span />
           </button>
         </div>
 
-        <div className={`mobile-menu ${menuOpen ? "open" : ""}`}>
-          <nav aria-label="Mobile navigation">
+        <div className={`mobileMenu ${menuOpen ? "show" : ""}`}>
+          <nav>
             <a href="#home" onClick={closeMenu}>
-              <span>01</span>
               Home
             </a>
-
             <a href="#about" onClick={closeMenu}>
-              <span>02</span>
               About
             </a>
-
             <a href="#bookkeeping" onClick={closeMenu}>
-              <span>03</span>
               Bookkeeping
             </a>
-
             <a href="#contact" onClick={closeMenu}>
-              <span>04</span>
               Contact
             </a>
           </nav>
 
-          <div className="mobile-contact">
+          <div className="mobileDetails">
             <a href={`mailto:${email}`}>{email}</a>
-            <a href={phoneHref}>{phoneDisplay}</a>
+            <a href={phoneLink}>{phone}</a>
           </div>
         </div>
       </header>
 
       <section className="hero" id="home">
-        <div className="hero-decoration hero-decoration-one" />
-        <div className="hero-decoration hero-decoration-two" />
+        <div className="heroCircle circleOne" />
+        <div className="heroCircle circleTwo" />
 
-        <div className="page-width hero-inner">
-          <div className="hero-main">
-            <p className="overline">
+        <div className="container heroGrid">
+          <div className="heroContent">
+            <p className="eyebrow">
               <span />
               Bookkeeping · Auckland
             </p>
 
             <h1>
-              Keeping the
+              Bookkeeping,
               <br />
-              numbers <em>clear.</em>
+              kept <em>clear.</em>
             </h1>
 
-            <p className="hero-description">
-              Swift Office Service provides bookkeeping support in Auckland,
-              with direct, personal communication from Joy Swift.
+            <p className="heroIntro">
+              Straightforward bookkeeping support with a direct point of
+              contact in Auckland.
             </p>
 
-            <div className="hero-buttons">
-              <a href={`mailto:${email}`} className="primary-button">
-                Get in touch
-                <span aria-hidden="true">↗</span>
+            <div className="heroActions">
+              <a className="primaryButton" href={`mailto:${email}`}>
+                Contact Joy
+                <span>↗</span>
               </a>
 
-              <a href="#about" className="secondary-link">
-                Discover more
-                <span aria-hidden="true">↓</span>
+              <a className="textButton" href="#bookkeeping">
+                Explore bookkeeping
+                <span>↓</span>
               </a>
             </div>
           </div>
 
-          <aside className="hero-side">
-            <div className="hero-number">01</div>
+          <aside className="profileCard">
+            <div className="profileTop">
+              <span>SWIFT</span>
+              <span>01</span>
+            </div>
 
-            <div className="hero-side-content">
-              <p>Direct contact</p>
+            <div className="monogram">S</div>
+
+            <div className="profileBottom">
+              <p>Your point of contact</p>
               <h2>Joy Swift</h2>
 
-              <div className="side-details">
+              <div className="profileLinks">
                 <a href={`mailto:${email}`}>{email}</a>
-                <a href={phoneHref}>{phoneDisplay}</a>
+                <a href={phoneLink}>{phone}</a>
                 <span>Auckland, New Zealand</span>
               </div>
             </div>
           </aside>
         </div>
 
-        <div className="hero-bottom page-width">
+        <div className="container heroFooter">
           <span>Swift Office Service</span>
           <span>Professional bookkeeping</span>
         </div>
       </section>
 
-      <section className="about-section" id="about">
-        <div className="page-width">
-          <div className="section-top">
-            <p className="section-number">01 / ABOUT</p>
-            <div className="section-rule" />
+      <section className="about" id="about">
+        <div className="container">
+          <div className="sectionLabel">
+            <span>01</span>
+            <p>About</p>
+            <div />
           </div>
 
-          <div className="about-grid">
-            <div className="about-heading">
-              <p className="mini-heading">A personal point of contact</p>
+          <div className="aboutGrid">
+            <div>
+              <p className="smallHeading">A personal point of contact</p>
 
               <h2>
-                Bookkeeping with a
+                A straightforward
                 <br />
-                <em>human connection.</em>
+                approach to
+                <br />
+                <em>bookkeeping.</em>
               </h2>
             </div>
 
-            <div className="about-copy">
-              <p className="large-copy">
+            <div className="aboutText">
+              <p className="lead">
                 Swift Office Service is associated with bookkeeper Joy Swift
                 in Auckland.
               </p>
 
               <p>
-                For businesses looking for bookkeeping support, Swift Office
-                Service provides a straightforward way to make an enquiry and
-                speak directly with Joy about what you need.
+                If you are looking for bookkeeping support, you can contact Joy
+                directly to discuss your requirements and find out whether
+                Swift Office Service is the right fit.
               </p>
 
-              <a href={`mailto:${email}`} className="inline-link">
-                Talk to Joy
-                <span aria-hidden="true">→</span>
+              <a href={`mailto:${email}`} className="underlinedLink">
+                Start a conversation
+                <span>→</span>
               </a>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="bookkeeping-section" id="bookkeeping">
-        <div className="page-width">
-          <div className="section-top section-top-light">
-            <p className="section-number">02 / BOOKKEEPING</p>
-            <div className="section-rule" />
+      <section className="services" id="bookkeeping">
+        <div className="container">
+          <div className="sectionLabel lightLabel">
+            <span>02</span>
+            <p>Bookkeeping</p>
+            <div />
           </div>
 
-          <div className="bookkeeping-grid">
-            <div className="bookkeeping-intro">
-              <p className="mini-heading light">What we do</p>
+          <div className="servicesGrid">
+            <div className="servicesHeading">
+              <p className="smallHeading lightText">Bookkeeping support</p>
 
               <h2>
-                Support for the
+                Focus on your
                 <br />
-                financial side of
+                business.
                 <br />
-                <em>your business.</em>
+                <em>Keep things clear.</em>
               </h2>
             </div>
 
-            <div className="bookkeeping-content">
-              <div className="statement">
+            <div className="serviceList">
+              <article>
                 <span>01</span>
 
                 <div>
-                  <h3>Bookkeeping support</h3>
+                  <h3>Bookkeeping</h3>
                   <p>
                     Contact Swift Office Service to discuss your bookkeeping
-                    requirements and the support you are looking for.
+                    requirements and the support you need.
                   </p>
                 </div>
-              </div>
+              </article>
 
-              <div className="statement">
+              <article>
                 <span>02</span>
 
                 <div>
                   <h3>Direct communication</h3>
                   <p>
-                    Enquiries go directly to Joy, giving you a clear point of
-                    contact from the beginning.
+                    Speak directly with Joy about your enquiry from the
+                    beginning.
                   </p>
                 </div>
-              </div>
+              </article>
 
-              <div className="statement">
+              <article>
                 <span>03</span>
 
                 <div>
                   <h3>Auckland based</h3>
                   <p>
-                    Swift Office Service is based in Auckland, New Zealand.
+                    A local point of contact for bookkeeping enquiries in
+                    Auckland, New Zealand.
                   </p>
                 </div>
-              </div>
+              </article>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="approach-section">
-        <div className="page-width approach-grid">
-          <div className="approach-marker">
-            <span>S</span>
-          </div>
+      <section className="conversation">
+        <div className="container conversationGrid">
+          <div className="bigMark">S</div>
 
-          <div className="approach-copy">
-            <p className="mini-heading">Simple by design</p>
+          <div className="conversationText">
+            <p className="smallHeading">Start simply</p>
 
             <h2>
-              Start with a
+              Begin with a
               <br />
               conversation.
             </h2>
 
             <p>
-              Every business has different bookkeeping requirements. Get in
-              touch directly with Joy to discuss what you need.
+              Every business has different requirements. Contact Joy directly
+              to discuss the bookkeeping support you are looking for.
             </p>
           </div>
 
-          <a className="round-link" href={`mailto:${email}`}>
+          <a className="circleButton" href={`mailto:${email}`}>
             <span>Contact</span>
-            <span>Joy ↗</span>
+            <strong>Joy ↗</strong>
           </a>
         </div>
       </section>
 
-      <section className="contact-section" id="contact">
-        <div className="page-width">
-          <div className="section-top section-top-light">
-            <p className="section-number">03 / CONTACT</p>
-            <div className="section-rule" />
+      <section className="contact" id="contact">
+        <div className="container">
+          <div className="sectionLabel lightLabel">
+            <span>03</span>
+            <p>Contact</p>
+            <div />
           </div>
 
-          <div className="contact-heading">
-            <p className="mini-heading light">Let's talk</p>
+          <div className="contactIntro">
+            <p className="smallHeading lightText">Get in touch</p>
 
             <h2>
-              Need bookkeeping
+              Let&apos;s talk
               <br />
-              support?
+              bookkeeping.
             </h2>
           </div>
 
-          <div className="contact-links">
+          <div className="contactOptions">
             <a href={`mailto:${email}`}>
               <div>
-                <span>Email Joy</span>
+                <span>Email</span>
                 <strong>{email}</strong>
               </div>
 
-              <b aria-hidden="true">↗</b>
+              <b>↗</b>
             </a>
 
-            <a href={phoneHref}>
+            <a href={phoneLink}>
               <div>
-                <span>Call Joy</span>
-                <strong>{phoneDisplay}</strong>
+                <span>Phone</span>
+                <strong>{phone}</strong>
               </div>
 
-              <b aria-hidden="true">↗</b>
+              <b>↗</b>
             </a>
           </div>
         </div>
       </section>
 
       <footer>
-        <div className="page-width footer-inner">
-          <div className="footer-brand">
-            <span className="brand-icon footer-icon">S</span>
+        <div className="container footerInner">
+          <div className="footerBrand">
+            <span className="logoMark footerMark">S</span>
 
             <div>
               <strong>Swift Office Service</strong>
